@@ -33,6 +33,13 @@ class chronopost {
 		// $this->tracking = new tracking($this->useExceptions);
 	}
 	
+	/*********
+	* Get labels array to forge shipment object
+	* Can transform shipment in two waus shipment
+	* Makes call to Chronopost
+	* Get response and append Shipment object
+	* Can trigger label recovery
+	***********/
 	public function makeShippingLabels ($labelsdata, $automaticLabelRecovery = true, $twoWays = false) {
 		
 		//Soap dataset forging
@@ -88,6 +95,11 @@ class chronopost {
 		return true;
 	}
 	
+	/************
+	* Recovers labels for the shipment object
+	* Append data to shipment objects
+	*************/
+	
 	public function getReservedLabels() {
 		$labels = new wslabelrecoveryvalue();
 		if (!is_object($this->shippingSC)) $this->shippingSC = $this->createSC(self::__shipping_wsdl);
@@ -116,6 +128,10 @@ class chronopost {
 		}
 	}
 	
+	/**********
+	* To be added features - does not work yet
+	***********/
+	/*
 	public function eraseLabel() {
 		
 	}
@@ -162,7 +178,10 @@ class chronopost {
 		unset($searchPodData);
 		return $pod;
 	}
-	
+	*/
+	/********
+	* Logs last SOAP call
+	*********/
 	private function logLastRq ($filename, $SCobject, $path = false) {
 		if(!$path) $path = self::__default_path_log;
 		if ($this->debugMode) {
@@ -171,18 +190,25 @@ class chronopost {
 		}
 	}
 	
-	private function differentLabels() {
-		$this->LabelsArray['Formats'] = $this->shipment->skybillParamsValue->getModesArray();
-	}
+	/*********
+	* Creates SOAP client with options
+	**********/
+
 	private function createSC ($url) {
 		return new SoapClient($url, $this->soapOptions());
 	}
+	/*********
+	* Adapts SOAP options from constructor call
+	**********/
 	private function soapOptions() {
 		$array = self::__soap_options;
 		$array['exceptions'] = $this->useExceptions;
 		$array['trace'] = !$this->useExceptions;
 		return $array;
 	}
+	/*********
+	* Saves labels to disk
+	**********/
 	public function labelsToDisk() {
 		if (property_exists($this->shipment, 'labels')) {
 			foreach($this->shipment->labels as $format => $label) {
