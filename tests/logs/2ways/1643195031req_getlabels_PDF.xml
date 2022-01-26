@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="http://cxf.shipping.soap.chronopost.fr/">
+  <env:Body>
+    <ns1:getReservedSkybillWithTypeAndMode>
+      <reservationNumber>053388805032441787082</reservationNumber>
+      <mode>PDF</mode>
+    </ns1:getReservedSkybillWithTypeAndMode>
+  </env:Body>
+</env:Envelope>

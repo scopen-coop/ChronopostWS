@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:shippingMultiParcelV4Response xmlns:ns1="http://cxf.shipping.soap.chronopost.fr/">
+      <return>
+        <errorCode>0</errorCode>
+        <errorMessage/>
+        <reservationNumber>053388805032441787082</reservationNumber>
+        <resultMultiParcelValue>
+          <codeDepot>05621254</codeDepot>
+          <codeService>226</codeService>
+          <destinationDepot>0475</destinationDepot>
+          <geoPostCodeBarre>%0026400XP503244178248226250</geoPostCodeBarre>
+          <geoPostNumeroColis>XP503244178248P</geoPostNumeroColis>
+          <groupingPriorityLabel>VAL0</groupingPriorityLabel>
+          <serviceMark/>
+          <serviceName>AM2-NO</serviceName>
+          <signaletiqueProduit>LU13</signaletiqueProduit>
+          <skybillNumber>XP503244178FR</skybillNumber>
+        </resultMultiParcelValue>
+        <resultMultiParcelValue>
+          <codeDepot>67450555</codeDepot>
+          <codeService>226</codeService>
+          <destinationDepot>0475</destinationDepot>
+          <geoPostCodeBarre>%0026000XP503244181248226250</geoPostCodeBarre>
+          <geoPostNumeroColis>XP503244181248V</geoPostNumeroColis>
+          <groupingPriorityLabel>VAL0</groupingPriorityLabel>
+          <serviceMark/>
+          <serviceName>AM2-NO</serviceName>
+          <signaletiqueProduit>LU13</signaletiqueProduit>
+          <skybillNumber>XP503244181FR</skybillNumber>
+        </resultMultiParcelValue>
+      </return>
+    </ns1:shippingMultiParcelV4Response>
+  </soap:Body>
+</soap:Envelope>

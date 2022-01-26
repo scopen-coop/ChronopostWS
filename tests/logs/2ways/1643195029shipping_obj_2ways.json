@@ -1,0 +1,140 @@
+{
+    "password": "255562",
+    "modeRetour": 2,
+    "numberOfParcel": 1,
+    "headerValue": {
+        "idEmit": "CHRFR",
+        "subAccount": null,
+        "accountNumber": 19869502
+    },
+    "customerValue": {
+        "customerPreAlert": 0,
+        "customerZipCode": "26000",
+        "printAsSender": "N",
+        "customerAdress1": "37 AVENUE DE LAUTAGNE",
+        "customerCity": "VALENCE",
+        "customerCivility": "E",
+        "customerContactName": "DEMI MOORE",
+        "customerCountry": "FR",
+        "customerCountryName": "FRANCE",
+        "customerEmail": "laboratoire@ladrome.fr",
+        "customerName": "LA DROME LABORATOIRE",
+        "customerName2": "Comptabilite",
+        "customerPhone": "0475817070"
+    },
+    "skybillParamsValue": {
+        "mode": "PDF|Z2D",
+        "withReservation": "1"
+    },
+    "shipperValue": [
+        {
+            "shipperPreAlert": 0,
+            "shipperAdress1": "37 AVENUE DE LAUTAGNE",
+            "shipperCity": "VALENCE",
+            "shipperCivility": "E",
+            "shipperContactName": "DEMI MOORE",
+            "shipperCountry": "FR",
+            "shipperCountryName": "FRANCE",
+            "shipperEmail": "laboratoire@ladrome.fr",
+            "shipperName": "LA DROME LABORATOIRE",
+            "shipperName2": "SCE LOGISTIQUE",
+            "shipperPhone": "0475817070",
+            "shipperZipCode": "26000"
+        },
+        {
+            "shipperPreAlert": 0,
+            "shipperAdress1": "18 PLACE DOCTEUR MAURICE ROZIER",
+            "shipperAdress2": "MAIRIE",
+            "shipperCity": "CREST",
+            "shipperCivility": "M",
+            "shipperContactName": "HERVE MARITON",
+            "shipperCountry": "FR",
+            "shipperCountryName": "FRANCE",
+            "shipperEmail": "hmariton@crest.fr",
+            "shipperName": "LA MAIRIE",
+            "shipperName2": "SERVICE PROTOCOLAIRE",
+            "shipperPhone": "0475766110",
+            "shipperZipCode": "26400",
+            "shipperType": "1"
+        }
+    ],
+    "recipientValue": [
+        {
+            "recipientAdress1": "18 PLACE DOCTEUR MAURICE ROZIER",
+            "recipientCity": "CREST",
+            "recipientCountry": "FR",
+            "recipientEmail": "hmariton@crest.fr",
+            "recipientName": "LA MAIRIE",
+            "recipientPhone": "0475766110",
+            "recipientPreAlert": 0,
+            "recipientZipCode": "26400",
+            "recipientAdress2": "MAIRIE",
+            "recipientCivility": "M",
+            "recipientContactName": "HERVE MARITON",
+            "recipientCountryName": "FRANCE",
+            "recipientName2": "SERVICE PROTOCOLAIRE",
+            "recipientType": "1"
+        },
+        {
+            "recipientAdress1": "37 AVENUE DE LAUTAGNE",
+            "recipientCity": "VALENCE",
+            "recipientCountry": "FR",
+            "recipientEmail": "laboratoire@ladrome.fr",
+            "recipientName": "LA DROME LABORATOIRE",
+            "recipientPhone": "0475817070",
+            "recipientPreAlert": 0,
+            "recipientZipCode": "26000",
+            "recipientCivility": "E",
+            "recipientContactName": "DEMI MOORE",
+            "recipientCountryName": "FRANCE",
+            "recipientName2": "SCE LOGISTIQUE",
+            "recipientType": "1"
+        }
+    ],
+    "refValue": [
+        {
+            "PCardTransactionNumber": null,
+            "shipperRef": "21-12345",
+            "recipientRef": "SURPRISE"
+        },
+        {
+            "PCardTransactionNumber": null,
+            "recipientRef": "21-12345",
+            "shipperRef": "SURPRISE"
+        }
+    ],
+    "skybillValue": [
+        {
+            "evtCode": "DC",
+            "objectType": "MAR",
+            "productCode": "01",
+            "service": "1",
+            "shipDate": "2022-01-26",
+            "shipHour": "11",
+            "weight": 1,
+            "weightUnit": "KGM",
+            "height": 10,
+            "length": 11,
+            "width": 100,
+            "bulkNumber": "1",
+            "skybillRank": "1",
+            "content1": "HIBOU CAILLOU GENOU"
+        },
+        {
+            "evtCode": "DC",
+            "objectType": "MAR",
+            "productCode": "01",
+            "service": "1",
+            "shipDate": "2022-01-26",
+            "shipHour": "11",
+            "weight": 1,
+            "weightUnit": "KGM",
+            "height": 10,
+            "length": 11,
+            "width": 100,
+            "bulkNumber": "1",
+            "skybillRank": "1",
+            "content1": "RET HIBOU CAILLOU GENOU"
+        }
+    ]
+}

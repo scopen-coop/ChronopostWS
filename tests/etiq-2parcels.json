@@ -1,0 +1,115 @@
+{
+	"password": "255562",
+	"modeRetour" : 2,
+	"numberOfParcel": 1,
+	"headerValue" : {
+		"accountNumber": 19869502
+	},
+	"shipperValue": [{
+		"shipperAdress1": "37 AVENUE DE LAUTAGNE",
+		"shipperCity": "VALENCE",
+		"shipperCivility": "E",
+		"shipperContactName": "DEMI MOORE",
+		"shipperCountry": "FR",
+		"shipperCountryName": "FRANCE",
+		"shipperEmail": "laboratoire@ladrome.fr",
+		"shipperName": "LA DROME LABORATOIRE",
+		"shipperName2": "SCE LOGISTIQUE",
+		"shipperPhone": "0475817070",
+		"shipperZipCode": "26000"
+	},
+	{
+		"shipperAdress1": "37 AVENUE DE LAUTAGNE",
+		"shipperCity": "VALENCE",
+		"shipperCivility": "E",
+		"shipperContactName": "DEMI MOORE",
+		"shipperCountry": "FR",
+		"shipperCountryName": "FRANCE",
+		"shipperEmail": "laboratoire@ladrome.fr",
+		"shipperName": "LA DROME LABORATOIRE",
+		"shipperName2": "SCE LOGISTIQUE",
+		"shipperPhone": "0475817070",
+		"shipperZipCode": "26000"
+	}],
+	"customerValue": {
+		"customerAdress1": "37 AVENUE DE LAUTAGNE",
+		"customerCity": "VALENCE",
+		"customerCivility": "E",
+		"customerContactName": "DEMI MOORE",
+		"customerCountry": "FR",
+		"customerCountryName": "FRANCE",
+		"customerEmail": "laboratoire@ladrome.fr",
+		"customerName": "LA DROME LABORATOIRE",
+		"customerName2": "Comptabilite",
+		"customerPhone": "0475817070",
+		"customerZipCode": "26000"
+	},
+	"recipientValue": [{
+		"recipientAdress1": "19 PLACE DOCTEUR MAURICE ROZIER",
+		"recipientAdress2": "MAIRIE",
+		"recipientCity": "CREST",
+		"recipientCivility": "M",
+		"recipientContactName": "PATRICK MARITON",
+		"recipientCountry": "FR",
+		"recipientCountryName": "FRANCE",
+		"recipientEmail": "president@elysee.fr",
+		"recipientName": "LA MAIRIE",
+		"recipientPhone": "0475766110",
+		"recipientZipCode": "26400",
+		"recipientType": "1"
+	},
+	{
+		"recipientAdress1": "18 PLACE DOCTEUR MAURICE ROZIER",
+		"recipientAdress2": "MAIRIE",
+		"recipientCity": "CREST",
+		"recipientCivility": "M",
+		"recipientContactName": "HERVE MARITON",
+		"recipientCountry": "FR",
+		"recipientCountryName": "FRANCE",
+		"recipientEmail": "president@elysee.fr",
+		"recipientName": "LA MAIRIE",
+		"recipientPhone": "0475766110",
+		"recipientZipCode": "26400",
+		"recipientType": "1"
+	}],
+	"refValue": [{
+		"shipperRef": "21-12345",
+		"recipientRef": "SURPRISE-1"
+	},
+	{
+		"shipperRef": "21-12345",
+		"recipientRef": "SURPRISE-2"
+	}],
+	"skybillValue": [{
+		"bulkNumber": "1",
+		"skybillRank": "1",
+		"content1": "HIBOU CAILLOU GENOU",
+		"objectType": "MAR",
+		"productCode": "01",
+		"service": "1",
+		"weight": 1.01,
+		"height": 10,
+		"length": 11,
+		"width": 100,
+		"shipDate": null,
+		"shipHour": null
+	},
+	{
+		"bulkNumber": "1",
+		"skybillRank": "1",
+		"content1": "HIBOU CAILLOU GENOU",
+		"objectType": "MAR",
+		"productCode": "01",
+		"service": "1",
+		"weight": 1.0,
+		"height": 10,
+		"length": 11,
+		"width": 100,
+		"shipDate": null,
+		"shipHour": null
+	}],
+	"skybillParamsValue": {
+		"mode": "PDF|Z2D",
+		"withReservation": "1"
+	}
+}

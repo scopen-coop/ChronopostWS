@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="http://cxf.shipping.soap.chronopost.fr/">
+  <env:Body>
+    <ns1:shippingMultiParcelV4>
+      <headerValue>
+        <accountNumber>19869502</accountNumber>
+        <idEmit>CHRFR</idEmit>
+        <subAccount/>
+      </headerValue>
+      <shipperValue>
+        <shipperAdress1>37 AVENUE DE LAUTAGNE</shipperAdress1>
+        <shipperCity>VALENCE</shipperCity>
+        <shipperCivility>E</shipperCivility>
+        <shipperContactName>DEMI MOORE</shipperContactName>
+        <shipperCountry>FR</shipperCountry>
+        <shipperCountryName>FRANCE</shipperCountryName>
+        <shipperEmail>laboratoire@ladrome.fr</shipperEmail>
+        <shipperName>LA DROME LABORATOIRE</shipperName>
+        <shipperName2>SCE LOGISTIQUE</shipperName2>
+        <shipperPhone>0475817070</shipperPhone>
+        <shipperPreAlert>0</shipperPreAlert>
+        <shipperZipCode>26000</shipperZipCode>
+      </shipperValue>
+      <shipperValue>
+        <shipperAdress1>37 AVENUE DE LAUTAGNE</shipperAdress1>
+        <shipperCity>VALENCE</shipperCity>
+        <shipperCivility>E</shipperCivility>
+        <shipperContactName>DEMI MOORE</shipperContactName>
+        <shipperCountry>FR</shipperCountry>
+        <shipperCountryName>FRANCE</shipperCountryName>
+        <shipperEmail>laboratoire@ladrome.fr</shipperEmail>
+        <shipperName>LA DROME LABORATOIRE</shipperName>
+        <shipperName2>SCE LOGISTIQUE</shipperName2>
+        <shipperPhone>0475817070</shipperPhone>
+        <shipperPreAlert>0</shipperPreAlert>
+        <shipperZipCode>26000</shipperZipCode>
+      </shipperValue>
+      <customerValue>
+        <customerAdress1>37 AVENUE DE LAUTAGNE</customerAdress1>
+        <customerCity>VALENCE</customerCity>
+        <customerCivility>E</customerCivility>
+        <customerContactName>DEMI MOORE</customerContactName>
+        <customerCountry>FR</customerCountry>
+        <customerCountryName>FRANCE</customerCountryName>
+        <customerEmail>laboratoire@ladrome.fr</customerEmail>
+        <customerName>LA DROME LABORATOIRE</customerName>
+        <customerName2>Comptabilite</customerName2>
+        <customerPhone>0475817070</customerPhone>
+        <customerPreAlert>0</customerPreAlert>
+        <customerZipCode>26000</customerZipCode>
+        <printAsSender>N</printAsSender>
+      </customerValue>
+      <recipientValue>
+        <recipientAdress1>19 PLACE DOCTEUR MAURICE ROZIER</recipientAdress1>
+        <recipientAdress2>MAIRIE</recipientAdress2>
+        <recipientCity>CREST</recipientCity>
+        <recipientContactName>PATRICK MARITON</recipientContactName>
+        <recipientCountry>FR</recipientCountry>
+        <recipientCountryName>FRANCE</recipientCountryName>
+        <recipientEmail>president@elysee.fr</recipientEmail>
+        <recipientName>LA MAIRIE</recipientName>
+        <recipientPhone>0475766110</recipientPhone>
+        <recipientPreAlert>0</recipientPreAlert>
+        <recipientZipCode>26400</recipientZipCode>
+        <recipientType>1</recipientType>
+      </recipientValue>
+      <recipientValue>
+        <recipientAdress1>18 PLACE DOCTEUR MAURICE ROZIER</recipientAdress1>
+        <recipientAdress2>MAIRIE</recipientAdress2>
+        <recipientCity>CREST</recipientCity>
+        <recipientContactName>HERVE MARITON</recipientContactName>
+        <recipientCountry>FR</recipientCountry>
+        <recipientCountryName>FRANCE</recipientCountryName>
+        <recipientEmail>president@elysee.fr</recipientEmail>
+        <recipientName>LA MAIRIE</recipientName>
+        <recipientPhone>0475766110</recipientPhone>
+        <recipientPreAlert>0</recipientPreAlert>
+        <recipientZipCode>26400</recipientZipCode>
+        <recipientType>1</recipientType>
+      </recipientValue>
+      <refValue>
+        <recipientRef>SURPRISE-1</recipientRef>
+        <shipperRef>21-12345</shipperRef>
+      </refValue>
+      <refValue>
+        <recipientRef>SURPRISE-2</recipientRef>
+        <shipperRef>21-12345</shipperRef>
+      </refValue>
+      <skybillValue>
+        <bulkNumber>1</bulkNumber>
+        <content1>HIBOU CAILLOU GENOU</content1>
+        <evtCode>DC</evtCode>
+        <objectType>MAR</objectType>
+        <productCode>01</productCode>
+        <service>1</service>
+        <shipDate>2022-01-26</shipDate>
+        <shipHour>11</shipHour>
+        <skybillRank>1</skybillRank>
+        <weight>1.01</weight>
+        <weightUnit>KGM</weightUnit>
+        <height>10</height>
+        <length>11</length>
+        <width>100</width>
+      </skybillValue>
+      <skybillValue>
+        <bulkNumber>1</bulkNumber>
+        <content1>HIBOU CAILLOU GENOU</content1>
+        <evtCode>DC</evtCode>
+        <objectType>MAR</objectType>
+        <productCode>01</productCode>
+        <service>1</service>
+        <shipDate>2022-01-26</shipDate>
+        <shipHour>11</shipHour>
+        <skybillRank>1</skybillRank>
+        <weight>1</weight>
+        <weightUnit>KGM</weightUnit>
+        <height>10</height>
+        <length>11</length>
+        <width>100</width>
+      </skybillValue>
+      <skybillParamsValue>
+        <mode>PDF|Z2D</mode>
+        <withReservation>1</withReservation>
+      </skybillParamsValue>
+      <password>255562</password>
+      <modeRetour>2</modeRetour>
+      <numberOfParcel>2</numberOfParcel>
+    </ns1:shippingMultiParcelV4>
+  </env:Body>
+</env:Envelope>

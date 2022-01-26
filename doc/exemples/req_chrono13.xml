@@ -1,0 +1,119 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.shipping.soap.chronopost.fr/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cxf:shippingMultiParcelV4>
+         <headerValue>
+    		  <accountNumber>19869502</accountNumber>
+            <idEmit>CHRFR</idEmit>
+            <identWebPro></identWebPro>
+            <subAccount></subAccount>
+         </headerValue>
+         <shipperValue>
+            <shipperAdress1>ADRESSE EXPEDITEUR</shipperAdress1>
+            <shipperAdress2></shipperAdress2>
+            <shipperCity>PARIS</shipperCity>
+            <shipperCivility>M</shipperCivility>
+            <shipperContactName>NOM CONTACT</shipperContactName>
+            <shipperCountry>FR</shipperCountry>
+            <shipperCountryName>FRANCE</shipperCountryName>
+            <shipperEmail>adresse@mail.fr</shipperEmail>
+            <shipperMobilePhone></shipperMobilePhone>
+            <shipperName>NOM EXPEDITEUR</shipperName>
+            <shipperName2></shipperName2>
+            <shipperPhone>0102030405</shipperPhone>
+            <shipperPreAlert>0</shipperPreAlert>
+            <shipperZipCode>75002</shipperZipCode>
+            <shipperType>1</shipperType>
+         </shipperValue>
+         <customerValue>
+            <customerAdress1>ADRESSE CLIENT</customerAdress1>
+            <customerAdress2></customerAdress2>
+            <customerCity>PARIS</customerCity>
+            <customerCivility>M</customerCivility>
+            <customerContactName>NOM CONTACT</customerContactName>
+            <customerCountry>FR</customerCountry>
+            <customerCountryName>FRANCE</customerCountryName>
+            <customerEmail>adresse@mail.fr</customerEmail>
+            <customerMobilePhone></customerMobilePhone>
+            <customerName>NOM CLIENT</customerName>
+            <customerName2></customerName2>
+            <customerPhone>0600000000</customerPhone>
+            <customerPreAlert>0</customerPreAlert>
+            <customerZipCode>75002</customerZipCode>
+            <printAsSender>N</printAsSender>
+         </customerValue>
+         <recipientValue>
+            <recipientName>NOM DESTINATAIRE</recipientName>
+		  <recipientName2></recipientName2>
+		  <recipientAdress1>ADRESSE 1 DESTINATAIRE</recipientAdress1>
+		  <recipientAdress2>ADRESSE 2 DESTINATAIRE</recipientAdress2>
+		  <recipientZipCode>69001</recipientZipCode>
+		  <recipientCity>LYON</recipientCity>
+		  <recipientCountry>FR</recipientCountry>
+		  <recipientContactName>CONTACT DESTINATAIRE</recipientContactName>
+		  <recipientEmail>mail@gmail.com</recipientEmail>
+		  <recipientPhone>1234567890</recipientPhone>
+		  <recipientMobilePhone></recipientMobilePhone>
+		  <recipientPreAlert>0</recipientPreAlert>
+            <recipientType>2</recipientType>
+         </recipientValue>
+         <refValue>
+            <customerSkybillNumber></customerSkybillNumber>
+            <recipientRef>REF DESTINATAIRE</recipientRef>
+            <shipperRef>REF EXPEDITEUR</shipperRef>
+            <idRelais></idRelais>
+         </refValue>
+         <skybillValue>
+            <bulkNumber>1</bulkNumber>
+            <codCurrency>EUR</codCurrency>
+            <codValue>0</codValue>
+            <content1></content1>
+            <content2></content2>
+            <content3></content3>
+            <content4></content4>
+            <content5></content5>
+            <customsCurrency>EUR</customsCurrency>
+            <customsValue></customsValue>
+            <evtCode>DC</evtCode>
+            <insuredCurrency>EUR</insuredCurrency>
+            <insuredValue>0</insuredValue>
+            <latitude></latitude>
+            <longitude></longitude>
+            <masterSkybillNumber/>
+            <objectType>MAR</objectType>
+            <portCurrency></portCurrency>
+            <portValue>0</portValue>
+            <productCode>01</productCode>
+            <qualite></qualite>
+            <service>0</service>
+            <shipDate>2020-07-10</shipDate>
+            <shipHour>17</shipHour>
+            <skybillRank>1</skybillRank>
+            <source></source>
+            <weight>10</weight>
+            <weightUnit>KGM</weightUnit>
+            <height>30</height>
+            <length>50</length>
+            <width>40</width>
+            <as></as>
+            <subAccount></subAccount>
+            <toTheOrderOf></toTheOrderOf>
+            <skybillNumber></skybillNumber>
+            <carrier>1</carrier>
+            <skybillBackNumber></skybillBackNumber>
+            <alternateProductCode></alternateProductCode>
+            <labelNumber></labelNumber>
+         </skybillValue>
+         <skybillParamsValue>
+            <duplicata>N</duplicata>
+            <mode>PDF</mode>
+            <withReservation>2</withReservation>
+         </skybillParamsValue>
+         <password>255562</password>
+         <modeRetour>2</modeRetour>
+         <numberOfParcel>1</numberOfParcel>
+         <version>2.0</version>
+         <multiParcel>N</multiParcel>        
+      </cxf:shippingMultiParcelV4>
+   </soapenv:Body>
+</soapenv:Envelope>

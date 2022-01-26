@@ -1,0 +1,17 @@
+{
+	"version": {
+		"version_no": "0.0.1",
+		"date": "2022-01-10",
+		"objet": "Config module ChronopostWS"
+	},
+	"accounts": {
+		"dev":{
+			"login": "19869502",
+			"password": "255562"
+		},
+		"prod": {
+			"login": "",
+			"password": ""
+		}
+	}
+}

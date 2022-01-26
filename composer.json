@@ -1,0 +1,14 @@
+{
+    "name": "ladromelaboratoire/chronopostws",
+    "description": "Chronopost SOAP web-service module for various integrations",
+    "license": "BSD-3-Clause",
+	"require": {
+		"php": ">=7.3",
+        "ext-soap": "*"
+    },
+	"autoload": {
+        "psr-4": {
+            "ladromelaboratoire\\chronopostws\\": "src/"
+        }
+    }
+}
