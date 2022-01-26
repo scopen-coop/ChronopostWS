@@ -57,7 +57,17 @@ Le dossier `./tests/logs` contient 3 exemples d'appels réussis en mode "Debug".
 ### Pour intégrer
 Tout repose sur composer.
 
-Tous les objets sont appelables manuellement. Néanmoins, il est bien plus facile de charger un tableau de données préparé ailleurs. La lecture de la documentation Chronopost est impérative pour comprendre ce qu'il faut fournir (la liste est longue) et la signification de certains paramètres. La fonction `RFLCheck()` de chaque object s'assurer de la cohérence apparente avant appel du web-service. Notez qu'il existe des paramètres dits optionnels dans la documentation mais bloquants lors des appels si absents.
+Tous les objets sont appelables manuellement. Néanmoins, il est bien plus facile de charger un tableau de données préparé ailleurs. La lecture de la documentation Chronopost est impérative pour comprendre ce qu'il faut fournir (la liste est longue) et la signification de certains paramètres. La fonction `RFLCheck()` de chaque object s'assure de la cohérence apparente avant appel du web-service. Notez qu'il existe des paramètres dits optionnels dans la documentation mais bloquants lors des appels si absents.
+
+La convention est que le tableau associatif donné en entrée utilise le nom exact des propriétés des objets attendu par le webService. Chaque élément passera par un _"setter"_ qui contrôlera sa forme aussi précisément que possible. Les expressions régulières sont massivement utilisées (voir la classe `wsregex.php`).
+
+Le dossier `/src/wsdata` contient l'ensemble des classes manipulant les objets unitaires à transettre au webservice.  
+Le dossier `/src/utils` contient des classes annexes  
+Le dossier `/src/exceptions` contient les classes de gestion des exception  
+Les 3 classes principales sont:
+- `/src/chronopost.php` qui gère les appels et les réponses au/du web-service
+- `/src/shipment.php` qui gère l'objet d'appel au service `ShipphingService`
+- `/src/tracking.php` qui gère les objets d'appel au service `TrackingService`
 
 ### Note aux développeurs
 Le web-service est chatouilleux sur les données envoyées. `RFLCheck()` tient compte de ce qui a été vu lors du développement. Néanmoins, d'autres particularités peuvent exister. L'erreur `29` est caractéristique d'un problème de données ou de la forme de l'appel SOAP. Les exemples fournis ont été testés fonctionnels. Inspirez vous en.
