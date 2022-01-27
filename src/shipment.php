@@ -28,7 +28,6 @@ class shipment extends wsdata {
 	public $numberOfParcel = 1;
 	
 	private $twoWaysArray;
-	private $useExceptions;
 	
 	public function __construct($useExceptions = false) {
 		$this->useExceptions = $useExceptions;
@@ -229,10 +228,6 @@ class shipment extends wsdata {
 		if (property_exists($refs, 'recipientRef')) $newrefs->setrecipientRef($refs->shipperRef);
 		if (property_exists($refs, 'shipperRef')) $newrefs->setshipperRef($refs->recipientRef);
 		if (property_exists($refs, 'idRelais')) $newrefs->setidRelais($refs->idRelais);
-		
-		//skybill items cannot be identical either to avoid references in SAOP request data or due to Chronopost WS - no clue
-		$content = (property_exists($skybill, 'content1')) ? $skybill->content1 : "-";
-		$newskybill->setcontent1("RET " . $content);
 		
 		$this->twoWaysArray[] = array($newshipper, $newrecipient, $newrefs, $newskybill);
 		
