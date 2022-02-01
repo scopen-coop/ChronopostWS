@@ -1,0 +1,32 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="https://casual-effects.com/markdeep/latest/slate.css?">
+
+                        **Shipment**
+                           Version 1.0
+
+
+This documentation describes the way to construct a Shipment object to maximize chances to get skybills from Chronopost webservices. The shipment object is a versatile object to allow evolutions. All public properties may be used by SoapClient to make request.
+
+This object is constructed by Chronopost Object of the module.  It receives all the data you want to load as long as there is a __setter__ method available. Using setters allows to control carefully the data against the WS rules.
+
+List of supported properties
+==============================================================
+- (string) password 
+- (string) modeRetour 
+- (int) numberOfParcel 
+- (string) version
+- (string) multiParcel
+- (Object) headerValue
+- (Array) shipperValue
+- (Object) customerValue
+- (Array) recipientValue
+- (Array) refValue
+- (Array) skybillValue
+- (Object) skybillParamsValue
+- (Object) esdValue
+- (Array) customsValue
+- (Array) scheduledValue
+
+
+	
+<style class="fallback">body{visibility:hidden}</style><script>markdeepOptions={tocStyle:'long'};</script>
+<!-- Markdeep: --><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>

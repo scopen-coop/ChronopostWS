@@ -132,6 +132,7 @@ class chronopost {
 				return false;
 			}
 		}
+		$this->logObject("_shipping_obj_withLabels", $this->shipment, self::__default_path_log);
 		return true;
 	}
 	
