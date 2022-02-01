@@ -49,12 +49,12 @@ class chronopost {
 		//Soap dataset forging
 		
 		$this->shipment->loadArray($labelsdata);
-		if ($this->debugMode) filehandler::jsonToDisk($this->shipment, time() . "_shipping_obj_init" . ".json", self::__default_path_log);
+		$this->logObject("_shipping_obj_init", $this->shipment, self::__default_path_log);
 		
 		//Makes it 2 ways
 		if ($twoWays) {
 			$this->shipment->makeTwoWays();
-			if ($this->debugMode) filehandler::jsonToDisk($this->shipment, time() . "_shipping_obj_2ways" . ".json", self::__default_path_log);
+			$this->logObject("_shipping_obj_2ways", $this->shipment, self::__default_path_log);
 		}
 		
 		//Force reservation to get a common way for labels recovery
@@ -65,7 +65,7 @@ class chronopost {
 			
 			if (!is_object($this->shippingSC)) $this->shippingSC = $this->createSC(self::__shipping_wsdl);
 			$response = $this->shippingSC->shippingMultiParcelV4($this->shipment);
-			if ($this->debugMode) $this->logLastRq("shipping", $this->shippingSC);
+			$this->logLastRq("shipping", $this->shippingSC);
 			
 		}
 		else {
@@ -87,7 +87,7 @@ class chronopost {
 			else {
 				$this->shipment->skybillValue[0]->skybillNumber = $response->return->resultMultiParcelValue->skybillNumber;
 			}
-			if ($this->debugMode) filehandler::jsonToDisk($this->shipment, time() . "shipping_obj_withResponse" . ".json", self::__default_path_log);
+			$this->logObject("_shipping_obj_withResponse", $this->shipment, self::__default_path_log);
 			//Labels recorevy
 			if ($automaticLabelRecovery) $this->getReservedLabels();
 		}
@@ -107,14 +107,15 @@ class chronopost {
 	public function getReservedLabels() {
 		$labels = new wslabelrecoveryvalue();
 		if (!is_object($this->shippingSC)) $this->shippingSC = $this->createSC(self::__shipping_wsdl);
-		
+
 		$labels->setreservationNumber($this->shipment->reservationNumber);
 		foreach($this->shipment->skybillParamsValue->getModesArray() as $mode) {
+
 			$labels->setmode($mode);
+			$this->logObject("_labels_obj_" . $mode, $labels, self::__default_path_log);
 			if ($labels->RFLcheck()) {
-				if ($this->debugMode) filehandler::jsonToDisk($labels, time() . "_labels_obj_" . $mode . ".json", self::__default_path_log);
 				$response = $this->shippingSC->getReservedSkybillWithTypeAndMode($labels);
-				if ($this->debugMode) $this->logLastRq("getlabels_" . $mode, $this->shippingSC);
+				$this->logLastRq("getlabels_" . $mode, $this->shippingSC);
 			}
 			else {
 				if ($this->useExceptions) throw new wsdataexception (__METHOD__ . " LabelrecoveryValue object fails RFLcheck");
@@ -125,13 +126,13 @@ class chronopost {
 			if($response->return->errorCode == 0) {
 				//stores labels in $this->shipment
 				$this->shipment->labels[$mode] = $response->return->skybill;
-				return true;
 			}
 			else {
 				if ($this->useExceptions) throw new wsexception (__METHOD__ . " skybills not retreived, error code $response->return->errorCode | $response->return->errorMessage");
 				return false;
 			}
 		}
+		return true;
 	}
 	
 	/************
@@ -144,11 +145,11 @@ class chronopost {
 		if (is_array($labeldata) && array_key_exists('skybillNumber', $labeldata) && array_key_exists('accountNumber', $labeldata)) {
 			$this->tracking->setcancelSkybillValue($labeldata);
 			if($this->tracking->cancelSkybillValue->RFLcheck()) {
-				if ($this->debugMode) filehandler::jsonToDisk($this->tracking->cancelSkybillValue, time() . "_cancel_obj.json", self::__default_path_log);
+				$this->logObject("_cancel_obj", $this->tracking->cancelSkybillValue, self::__default_path_log);
 				
 				if (!is_object($this->trackingSC)) $this->trackingSC = $this->createSC(self::__tracking_wsdl);
 				$response = $this->trackingSC->cancelSkybill($this->tracking->cancelSkybillValue);
-				if ($this->debugMode) $this->logLastRq("cancelSkybill", $this->trackingSC);
+				$this->logLastRq("cancelSkybill", $this->trackingSC);
 
 				if($response->return->errorCode == 0) {
 					//Sucess
@@ -172,7 +173,7 @@ class chronopost {
 	
 	
 	/**********
-	* To be added features - does not work yet
+	* get full tracking for a skybill number
 	***********/
 	/*
 	public function getTrackingParcel($labelNumber) {
@@ -193,6 +194,11 @@ class chronopost {
 		
 		
 	}
+	*/
+	/************
+	* Delivery evidence recovery
+	*************/
+	/*
 	public function getDeliveryEvidence ($searchdata) {
 		$searchPodData = new wssearchpodvalue();
 		$searchPodData->loadArray($searchdata);
@@ -218,7 +224,7 @@ class chronopost {
 		unset($searchPodData);
 		return $pod;
 	}
-	
+	*/
 	/************
 	* search Cost for one parcel
 	*************/
@@ -227,11 +233,11 @@ class chronopost {
 		if (is_array($data) {
 			$this->quickcost->setquickcostValue($data);
 			if($this->quickcost->quickcostValue->RFLcheck()) {
-				if ($this->debugMode) filehandler::jsonToDisk($this->quickcost->quickcostValue, time() . "_quickcost_obj.json", self::__default_path_log);
+				$this->logObject("_quickcost_obj", $this->quickcost->quickcostValue, self::__default_path_log);
 				
 				// if (!is_object($this->trackingSC)) $this->trackingSC = $this->createSC(self::__tracking_wsdl);
 				// $response = $this->trackingSC->cancelSkybill($this->tracking->cancelSkybillValue);
-				// if ($this->debugMode) $this->logLastRq("cancelSkybill", $this->trackingSC);
+				// $this->logLastRq("cancelSkybill", $this->trackingSC);
 				
 				// if($response->return->errorCode == 0) {
 					Sucess
@@ -262,10 +268,20 @@ class chronopost {
 	* Logs last SOAP call
 	*********/
 	private function logLastRq ($filename, $SCobject, $path = false) {
-		if(!$path) $path = self::__default_path_log;
 		if ($this->debugMode) {
+			if(!$path) $path = self::__default_path_log;
 			fileHandler::xmlToDisk($SCobject->__getLastRequest(), time() . "_req_" . $filename . ".xml", $path);
 			fileHandler::xmlToDisk($SCobject->__getLastResponse(), time() . "_resp_" . $filename . ".xml", $path);
+		}
+	}
+	
+	/********
+	* Dump object to file
+	*********/
+	private function logObject ($filename, $object, $path = false) {
+		if ($this->debugMode) {
+			if(!$path) $path = self::__default_path_log;
+			filehandler::jsonToDisk($object, time() . "_" . $filename . ".json", $path);
 		}
 	}
 	
@@ -288,10 +304,12 @@ class chronopost {
 	/*********
 	* Saves labels to disk
 	**********/
-	public function labelsToDisk() {
+	public function labelsToDisk($path = false, $filename = false) {
 		if (property_exists($this->shipment, 'labels')) {
+			if(!$path) $path = self::__default_path_log;
+			if (!$filename) $filename = time() . "_label";
 			foreach($this->shipment->labels as $format => $label) {
-				filehandler::b64ToDisk($label, time() . "_label." . $format, self::__default_path_log);
+				filehandler::b64ToDisk($label, $filename . "." . $format, self::__default_path_log);
 			}
 		}
 	}
