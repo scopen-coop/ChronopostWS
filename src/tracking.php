@@ -37,7 +37,7 @@ class tracking {
 */
 	public function setcancelSkybillValue($array) {
 		unset($this->cancelSkybillValue);
-		$this->cancelSkybillValue = new wscancelskybillvalue();
+		$this->cancelSkybillValue = new wscancelskybillvalue($this->useExceptions);
 		$this->cancelSkybillValue->loadArray($array);
 	}
 /*
@@ -52,6 +52,7 @@ class tracking {
 			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " cancelSkybillValue dataset not valid for WS");
 			return false;
 		}
+		return true;
 	}
 }
 ?>
