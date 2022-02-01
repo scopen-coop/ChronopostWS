@@ -11,10 +11,12 @@ Les services Chronopost ciblés :
 ShippingServices
     - shippingMultiParcelV4
     - getReservedSkybillWithTypeAndMode
-TrackingService
+TrackingServices
     - searchPOD
     - cancelSkybill
     - trackSkybillV2
+QuickcostServices
+    - quickCost
 ````
 
 ## Fonctions supportées
@@ -34,7 +36,7 @@ Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
 - Tracking
     - Annulation d'une lettre de transport
 - Mode debug complet (dump des objets, dump des requêtes et réponses)
-- Peut générer des exceptions PHP si l'application fonctionne de cette manière.
+- Génèrera des exceptions PHP si l'application fonctionne de cette manière.
 
 
 
@@ -46,6 +48,9 @@ Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
     - A terminer
         - Récupération des preuves de livraison
         - Suivi d'un colis
+- Quickcost
+    - A terminer
+        - Récupération du coût d'un envoi
 - Optimisation des classes et des objets
 - Ecrire une vraie documentation
 - Introduire PHPUnit
@@ -70,6 +75,7 @@ Les 3 classes principales sont:
 - `/src/chronopost.php` qui gère les appels et les réponses au/du web-service
 - `/src/shipment.php` qui gère l'objet d'appel au service `ShipphingService`
 - `/src/tracking.php` qui gère les objets d'appel au service `TrackingService`
+- `/src/quickcost.php` qui gère les objets d'appel au service `QuickcostService`
 
 ### Note aux développeurs
 Le web-service est chatouilleux sur les données envoyées. `RFLCheck()` tient compte de ce qui a été vu lors du développement. Néanmoins, d'autres particularités peuvent exister. L'erreur `29` est caractéristique d'un problème de données ou de la forme de l'appel SOAP. Les exemples fournis ont été testés fonctionnels. Inspirez vous en.
