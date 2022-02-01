@@ -126,9 +126,33 @@ class shipment extends wsdata {
 		$this->esdValue = new wsesdvalue($this->useExceptions);
 		return $this->esdValue->loadArray($array);
 	}
-	public function setcustomsvalue($array) {
-		$this->customsValue = new wscustomsvalue($this->useExceptions);
-		return $this->customsValue->loadArray($array);
+	public function setcustomsValue ($customs) {
+		if (array_key_exists(0, $customs)) {
+			//for shipping multiparcels
+			foreach($customs as $index => $custom) {
+				$this->customsValue[$index] = new wscustomsvalue($this->useExceptions);
+				$this->customsValue[$index]->loadArray($custom);
+			}
+			return true;
+		}
+		else {
+			$this->customsValue[0] = new wscustomsvalue($this->useExceptions);
+			return $this->customsValue[0]->loadArray($customs);
+		}
+	}
+	public function setscheduledValue ($schedules) {
+		if (array_key_exists(0, $schedules)) {
+			//for shipping multiparcels
+			foreach($schedules as $index => $schedule) {
+				$this->scheduledValue[$index] = new wsscheduledvalue($this->useExceptions);
+				$this->scheduledValue[$index]->loadArray($schedule);
+			}
+			return true;
+		}
+		else {
+			$this->scheduledValue[0] = new wscustomsvalue($this->useExceptions);
+			return $this->scheduledValue[0]->loadArray($schedules);
+		}
 	}
 	/*********
 	* Helper to load an array into this object
@@ -177,7 +201,6 @@ class shipment extends wsdata {
 			$this->recipientValue[] = $parcel[1];
 			$this->refValue[] = $parcel[2];
 			$this->skybillValue[] = $parcel[3];
-			
 		}
 		
 	}
@@ -263,43 +286,57 @@ class shipment extends wsdata {
 			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " esdValue not valid for WS");
 			return false;			
 		}
-		if (isset($this->customsValue) && !$this->customsValue->RFLcheck()) {
+		if (isset($this->customsValue) && !$this->RFLcheckThroughArray($this->customsValue)) {
 			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " customsValue not valid for WS");
 			return false;			
 		}
-		
+		if (isset($this->scheduledValue) && !$this->RFLcheckThroughArray($this->scheduledValue)) {
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " scheduledValue not valid for WS");
+			return false;			
+		}
 		
 		//consistency checks
 		$numskybills = count($this->skybillValue);
 		$numrefs = count($this->refValue);
 		$numshippers = count($this->shipperValue);
 		$numrecipients = count($this->recipientValue);
-			//double check this
-			$this->setnumberOfParcel(count($this->skybillValue));
-			
-			//One shipper, one recipient, N parcels
-			if ($numshippers  == 1 && 
-				$numrecipients == 1 && 
-				$numrefs == $numskybills) {
-				return true;
-			}
-			//One parcel per shipper and recipient
-			else if ($numskybills == $numshippers &&
-					$numskybills == $numrecipients &&
-					$numskybills == $numrefs){
-				return true;
-			}
-			//One shipper, N recipients, N parcels
-			else if ($numshippers == 1 &&
-					$numskybills == $numrecipients &&
-					$numskybills == $numrefs){
-				return true;
-			}
-			else {
-				return false;
-			}
-		//nothing weird found
-		return true;
+		
+		if ($this->numberOfParcel != $numskybills) {
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " number of skybills and numberOfparcel not consistent for WS");
+			return false;
+		}
+		if(isset($this->scheduledValue) && ($numskybills != count($this->scheduledValue))) {
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " number of skybills and scheduledValues not consistent for WS");
+			return false;			
+		}
+		if(isset($this->customsValue) && ($numskybills != count($this->customsValue))) {
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " number of skybills and customsValues not consistent for WS");
+			return false;			
+		}
+		
+		//One shipper, one recipient, N parcels
+		if ($numshippers  == 1 && 
+			$numrecipients == 1 && 
+			$numrefs == $numskybills) {
+			return true;
+		}
+		//One parcel per shipper and recipient
+		else if ($numskybills == $numshippers &&
+				$numskybills == $numrecipients &&
+				$numskybills == $numrefs){
+			return true;
+		}
+		//One shipper, N recipients, N parcels
+		else if ($numshippers == 1 &&
+				$numskybills == $numrecipients &&
+				$numskybills == $numrefs){
+			return true;
+		}
+		else {
+			return false;
+		}
+	//nothing weird found
+	return true;
 	}
 
 }
