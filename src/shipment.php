@@ -19,6 +19,7 @@ use ladromelaboratoire\chronopostws\wsdata\wsskybillvalue;
 use ladromelaboratoire\chronopostws\wsdata\wsskybillparamsvalue;
 use ladromelaboratoire\chronopostws\wsdata\wsesdvalue;
 use ladromelaboratoire\chronopostws\wsdata\wscustomsvalue;
+use ladromelaboratoire\chronopostws\wsdata\wsscheduledvalue;
 
 class shipment extends wsdata {
 	
