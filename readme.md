@@ -31,6 +31,8 @@ Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
     - Contrôle général de cohérence (Readiness For Launch)
     - Enrichissement de l'objet shipment avec les réponses du web-service
 	- Enregistrement sur disque des étiquettes
+- Tracking
+    - Annulation d'une lettre de transport
 - Mode debug complet (dump des objets, dump des requêtes et réponses)
 - Peut générer des exceptions PHP si l'application fonctionne de cette manière.
 
@@ -42,11 +44,11 @@ Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
     - Trouver un moyen plus élégant de faire des étiquettes aller / retour
 - Tracking
     - A terminer
-        - Annulation d'une lettre de transport
         - Récupération des preuves de livraison
         - Suivi d'un colis
 - Optimisation des classes et des objets
 - Ecrire une vraie documentation
+- Introduire PHPUnit
 
 ## Usage
 

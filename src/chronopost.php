@@ -22,7 +22,8 @@ class chronopost {
 	private CONST __shipping_wsdl = 'https://ws.chronopost.fr/shipping-cxf/ShippingServiceWS?wsdl';
 	private CONST __tracking_wsdl = 'https://ws.chronopost.fr/tracking-cxf/TrackingServiceWS?wsdl';
 	
-	public $shippingSC;
+	private $shippingSC;
+	private $trackingSC;
 	private $debugMode;
 	private $useExceptions;
 
@@ -30,7 +31,7 @@ class chronopost {
 		$this->debugMode = $debug;
 		$this->useExceptions = $useExceptions;
 		$this->shipment = new shipment($this->useExceptions);
-		// $this->tracking = new tracking($this->useExceptions);
+		$this->tracking = new tracking($this->useExceptions);
 	}
 	
 	/*********
@@ -128,13 +129,49 @@ class chronopost {
 		}
 	}
 	
+	/************
+	* cancel Skybill
+	* 
+	*************/
+
+	public function cancelSkybill($labeldata) {
+		
+		if (is_array($labeldata) && array_key_exists('skybillNumber', $labeldata) && array_key_exists('accountNumber', $labeldata)) {
+			$this->tracking->setcancelSkybillValue($labeldata);
+			if($this->tracking->cancelSkybillValue->RFLcheck()) {
+				if ($this->debugMode) filehandler::jsonToDisk($this->tracking->cancelSkybillValue, time() . "cancel_obj.json", self::__default_path_log);
+				
+				if (!is_object($this->trackingSC)) $this->trackingSC = $this->createSC(self::__tracking_wsdl);
+				$response = $this->trackingSC->cancelSkybill($this->tracking->cancelSkybillValue);
+				if ($this->debugMode) $this->logLastRq("cancelSkybill", $this->trackingSC);
+				
+				if($response->return->errorCode == 0) {
+					//Sucess
+					return true;
+				}
+				else {
+					if ($this->useExceptions) throw new wsexception (__METHOD__ . " skybill $this->tracking->cancelSkybillValue->skybillNumber not cancelled, error code $response->return->errorCode | $response->return->errorMessage");
+				}
+				
+			}
+			else {
+				if ($this->useExceptions) throw new wsdataexception (__METHOD__ . " cancelSkybillValue fails RFLcheck");
+				return false;
+			}
+			
+			
+		}
+		else {
+			if ($this->useExceptions) throw new wsdataexception (__METHOD__ . " cancelSkybillValue seems invalid before treatments");
+			return false;
+		}
+	}
+	
+	
 	/**********
 	* To be added features - does not work yet
 	***********/
 	/*
-	public function eraseLabel() {
-		
-	}
 	public function getTrackingParcel($labelNumber) {
 		$trackingData = new wstrackingoneparcelvalue();
 		$trackingData->setskybillNumber($labelNumber);

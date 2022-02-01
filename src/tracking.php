@@ -11,6 +11,7 @@
 namespace ladromelaboratoire\chronopostws;
 use ladromelaboratoire\chronopostws\wsdata\wsregex;
 use ladromelaboratoire\chronopostws\wsdata\wsdata;
+use ladromelaboratoire\chronopostws\wsdata\wscancelskybillvalue;
 
 
 class tracking {
@@ -33,16 +34,24 @@ class tracking {
 		$this->podValue = new wssearchpodvalue();
 		$this->podValue->loadArray($array);
 	}
-	public function cancelSkybill($array) {
-		unset($this->skybillvalue);
-		$this->skybillValue = new wscancelskybillvalue();
-		$this->skybillValue->loadArray($array);
+*/
+	public function setcancelSkybillValue($array) {
+		unset($this->cancelSkybillValue);
+		$this->cancelSkybillValue = new wscancelskybillvalue();
+		$this->cancelSkybillValue->loadArray($array);
 	}
+/*
 	public function newtracking($array) {
 		unset($this->trackingValue);
 		$this->trackingValue = new wstrackingoneparcelvalue();
 		$this->trackingValue->loadArray($array);
 	}
 */
+	public function RFLcheck() {
+		if (!$this->cancelSkybillValue->RFLcheck()) {
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " cancelSkybillValue dataset not valid for WS");
+			return false;
+		}
+	}
 }
 ?>

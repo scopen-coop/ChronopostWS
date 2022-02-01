@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="http://cxf.tracking.soap.chronopost.fr/">
+  <env:Body>
+    <ns1:cancelSkybill>
+      <accountNumber>19869502</accountNumber>
+      <password>255562</password>
+      <language>fr_FR</language>
+      <skybillNumber>XP503122466FR</skybillNumber>
+    </ns1:cancelSkybill>
+  </env:Body>
+</env:Envelope>

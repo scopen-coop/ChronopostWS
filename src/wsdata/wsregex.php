@@ -15,8 +15,9 @@ class wsregex {
 	public CONST __reg_1234 = '/^(1|2|3|4)$/';
 
 //header
-	public CONST __reg_AccountNumber = '/^\d{8}$/'; 
+	public CONST __reg_AccountNumber = '/^\d{8}$/';
 	public CONST __reg_SubAccountNumber = '/^\d{3}$/';
+	public CONST __reg_Password = '/^\d{6}$/';
 
 //shipper
 	

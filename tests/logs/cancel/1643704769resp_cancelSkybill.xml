@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:cancelSkybillResponse xmlns:ns1="http://cxf.tracking.soap.chronopost.fr/">
+      <return>
+        <errorCode>2</errorCode>
+        <errorMessage>the parcel doesn't match account or parcel information not found</errorMessage>
+        <statusCode>0</statusCode>
+      </return>
+    </ns1:cancelSkybillResponse>
+  </soap:Body>
+</soap:Envelope>
