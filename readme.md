@@ -19,6 +19,8 @@ QuickcostServices
     - quickCost
 ````
 
+Attention, le fonctionnement du module répond à un besoin. Les uses-cases doivent être étudiés pour définir la stratégie d'appel au module qui se contente de faire des vérifications basiques. Il ne peut pas prendre en compte les spécificités du contrat Chronopost de chaque utilisateur (fuiltrer les produits et services, les coûts additionnels, le fonctionnement douanier).
+
 ## Fonctions supportées
 
 Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
@@ -44,6 +46,7 @@ Seule la partie Shipping est implémentée et fonctionnelle pour le moment.
 - Shipment
     - Classe de détermination du nom du pays normalisé et de contrôle de la cohérence du code postal en fonction du code pays
     - Trouver un moyen plus élégant de faire des étiquettes aller / retour
+	- Gérer le cas des déclarations douane en multi colis
 - Tracking
     - A terminer
         - Récupération des preuves de livraison
@@ -82,3 +85,6 @@ Le web-service est chatouilleux sur les données envoyées. `RFLCheck()` tient c
 
 ## Contribuer
 La contribution est la bienvenue sous forme de PR documentée unitaire ou de remontée de bug documentée également. Les demandes fonctionnelles ne seront traitées que si nous en avons le temps et si cela a un sens pour nous. Préférez les PRs.
+
+## Disclaimer
+Ce module est fourni tel qu'il existe. Des changements peuvent apparaître chez Chronopost ou ne pas correspondre à vos règles d'usage métier. Bien que ce module se veille générique, tous les cas ne sont pas intégrable. Avant de vous appuyer dessus, il est vivement recommandé de le tester. L'ajout de fonctionnalités peut être proposer par la contribution.
