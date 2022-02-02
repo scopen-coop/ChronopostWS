@@ -87,4 +87,4 @@ Le web-service est chatouilleux sur les données envoyées. `RFLCheck()` tient c
 La contribution est la bienvenue sous forme de PR documentée unitaire ou de remontée de bug documentée également. Les demandes fonctionnelles ne seront traitées que si nous en avons le temps et si cela a un sens pour nous. Préférez les PRs.
 
 ## Disclaimer
-Ce module est fourni tel qu'il existe. Des changements peuvent apparaître chez Chronopost ou ne pas correspondre à vos règles d'usage métier. Bien que ce module se veille générique, tous les cas ne sont pas intégrable. Avant de vous appuyer dessus, il est vivement recommandé de le tester. L'ajout de fonctionnalités peut être proposer par la contribution.
+Ce module est fourni tel qu'il existe. Des changements peuvent apparaître chez Chronopost ou ne pas correspondre à vos règles d'usage métier. Bien que ce module se veuille générique, tous les cas ne sont pas intégrables. Avant de vous appuyer dessus, il est vivement recommandé de le tester. L'ajout de fonctionnalités peut être proposé par la contribution.
