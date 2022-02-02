@@ -37,7 +37,7 @@ List of properties
     public (int) reservationNumber
     public (Array) labels
 ````
-Some properties of the object can be appeded by WS call too.
+Some properties of the object can be appended by WS call too.
 
 List of Methods
 ==============================================================
@@ -49,11 +49,14 @@ All properties have a public setter. The setters perform consistency checks on d
 The additional methods are
 
 ````
-	public function loadArray() {} // convenient method to load the whole object from an array. Indexes must have the exact property names.
-	public function makeTwoWays() {} //  method to transform a shipment in 2 ways shipment. Works only in certain cases regarding consistency between shippers, recipients, skybills, customs...
-	private function makeOneParcelTwoWays() {} //Private method used by makeTwoWays()
-	public function RFLcheck() {} // perfoms consistency checks. To be called before WS call
+    public function loadArray() {} // convenient method to load the whole object from an array. Indexes must have the exact property names.
+    public function makeTwoWays() {} //  method to transform a shipment in 2 ways shipment. Works only in certain cases regarding consistency between shippers, recipients, skybills, customs...
+    private function makeOneParcelTwoWays() {} // private method used by makeTwoWays()
+    public function RFLcheck() {} // perfoms consistency checks. To be called before WS call
 ````
+
+### makeTwoWays()
+To be added : customsValue consistency to check the ability to make it 2 ways. In somes cases, you cannot use the 2 ways mode using customs declaration. For instance, the way back can occur at different timeframes.
 	
 <style class="fallback">body{visibility:hidden}</style><script>markdeepOptions={tocStyle:'long'};</script>
 <!-- Markdeep: --><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>
