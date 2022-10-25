@@ -9,6 +9,7 @@
 
 namespace ladromelaboratoire\chronopostws\wsdata;
 use ladromelaboratoire\chronopostws\wsdata\wsregex;
+use ladromelaboratoire\chronopostws\exceptions\wsdataexception;
 
 abstract class wsdata {
 
@@ -20,7 +21,7 @@ abstract class wsdata {
 	protected function setVariableReg (&$variable, $data, $reg) {
 		$check = preg_match($reg, $data);
 		if ($check === false || $check === 0) {
-			if ($this->useExceptions) throw new Exception(__METHOD__ . " - $data does not match webservice requirement according to regex $reg");
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - $data does not match webservice requirement according to regex $reg");
 			//echo ("<pre>souci avec la valeur $data et la règle $reg</pre>\r\n");
 			return false;
 		}
@@ -35,7 +36,7 @@ abstract class wsdata {
 			return true;
 		}
 		else {
-			if ($this->useExceptions) throw new Exception(__METHOD__ . " - $data does not match webservice requirement as int");
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - $data does not match webservice requirement as int");
 			// echo ("<pre>$data n'est pas un entier</pre>\r\n");
 			return false;
 		}
@@ -46,7 +47,7 @@ abstract class wsdata {
 			return true;
 		}
 		else {
-			if ($this->useExceptions) throw new Exception(__METHOD__ . " - $data does not match webservice requirement as float");
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - $data does not match webservice requirement as float");
 			// echo ("<pre>$data n'est pas un float</pre>\r\n");
 			return false;
 		}
@@ -57,7 +58,7 @@ abstract class wsdata {
 			return true;
 		}
 		else {
-			if ($this->useExceptions) throw new Exception(__METHOD__ . " - $data does not match webservice requirement as boolean");
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - $data does not match webservice requirement as boolean");
 			// echo ("<pre>$data n'est pas un booleen</pre>\r\n");
 			return false;
 		}
@@ -70,12 +71,12 @@ abstract class wsdata {
 					$this->$func($value);
 				}
 				else {
-					if ($this->useExceptions) throw new Exception(__METHOD__ . " - Property and/or setter method $key does not exist in object");
+					if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - Property and/or setter method $key does not exist in object");
 				}
 			}
 		}
 		else {
-			if ($this->useExceptions) throw new Exception(__METHOD__ . " - not an associative array passed as parameter");
+			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " - not an associative array passed as parameter");
 		}
 	}
 

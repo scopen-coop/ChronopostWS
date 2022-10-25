@@ -12,6 +12,7 @@ namespace ladromelaboratoire\chronopostws;
 use ladromelaboratoire\chronopostws\wsdata\wsregex;
 use ladromelaboratoire\chronopostws\wsdata\wsdata;
 use ladromelaboratoire\chronopostws\wsdata\wscancelskybillvalue;
+use ladromelaboratoire\chronopostws\exceptions\wsdataexception;
 
 
 class tracking {
