@@ -1,6 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-define('__etiquette', './etiq-1parcel.json');
+define('__etiquette', './etiq-1parcel-.json');
 
 use ladromelaboratoire\chronopostws\utils\jsonLoader;
 use ladromelaboratoire\chronopostws\chronopost;
@@ -13,7 +13,7 @@ unset($loadEtiq);
 //useException, debugMode
 $chrono = new chronopost(false, true);
 
-//data, automaticlabelrecorevy, twoWays
+//data, automatic label recorevy, twoWays
 //if not using the automatic recovery, you can access labels through $chrono->shipment->labels array
 $etiquette = $chrono->makeShippingLabels($etiq, true, false);
 $chrono->labelsToDisk();
