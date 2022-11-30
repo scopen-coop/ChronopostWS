@@ -205,6 +205,7 @@ class shipment extends wsdata {
 			$this->skybillValue[] = $parcel[3];
 		}
 		
+		$this->setnumberOfParcel(count($this->skybillValue));
 	}
 	/********
 	* Makes one parcel 2 ways
