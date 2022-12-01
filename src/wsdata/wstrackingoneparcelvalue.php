@@ -31,7 +31,7 @@ class wstrackingoneparcelvalue extends wsdata {
 		}
 		else {
 			if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " To track parcel, we need skybill number and language to be set");
-			return false
+			return false;
 		}
 	}
 }

@@ -54,11 +54,11 @@ class wsesdvalue extends wsdata {
 			else {
 				unset($this->retrievalDateTime);
 				if ($this->useExceptions) throw new wsdataexception(__METHOD__ . " retrievalDateTime not within Now and Now+3months range");
-				return false
+				return false;
 			}
 		}
 		else {
-			return false
+			return false;
 		}
 	}
 	public function setshipperBuildingFloor ($value) {
