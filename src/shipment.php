@@ -183,7 +183,7 @@ class shipment extends wsdata {
 				$this->makeOneParcelTwoWays($this->shipperValue[0], $this->recipientValue[0], $this->refValue[$index], $this->skybillValue[$index]);
 			}
 		}
-		else if ($numshippers  == numskybills && $numrecipients == numskybills && $numrefs == $numskybills) {
+		else if ($numshippers  == $numskybills && $numrecipients == $numskybills && $numrefs == $numskybills) {
 			foreach($this->skybillValue as $index => $skybill) {
 				$this->twoWaysArray[] = array($this->shipperValue[$index], $this->recipientValue[$index], $this->refValue[$index], $this->skybillValue[$index]);
 				$this->makeOneParcelTwoWays($this->shipperValue[$index], $this->recipientValue[$index], $this->refValue[$index], $this->skybillValue[$index]);
@@ -205,6 +205,7 @@ class shipment extends wsdata {
 			$this->skybillValue[] = $parcel[3];
 		}
 		
+		$this->setnumberOfParcel(count($this->skybillValue));
 	}
 	/********
 	* Makes one parcel 2 ways
