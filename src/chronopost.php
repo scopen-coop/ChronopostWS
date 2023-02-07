@@ -19,6 +19,13 @@ class chronopost {
 		"exceptions" => false,
 		"connection_timeout" => 10
 	);
+	private CONST __soap_sslcheck_disable = array(
+		"ssl" => [
+			"verify_peer" => false,
+			"verify_peer_name" => false,
+			"allow_self_signed" => true
+			]
+	);
 	private CONST __shipping_wsdl = 'https://ws.chronopost.fr/shipping-cxf/ShippingServiceWS?wsdl';
 	private CONST __tracking_wsdl = 'https://ws.chronopost.fr/tracking-cxf/TrackingServiceWS?wsdl';
 	private CONST __quickcost_wsdl = 'https://ws.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl';
@@ -29,11 +36,13 @@ class chronopost {
 	private $debugMode;
 	private $useExceptions;
 	private $debugPath;
+	private $disableSSLCheck;
 
-	public function __construct($useExceptions = false, $debug = false, $debugpath = false) {
+	public function __construct($useExceptions = false, $debug = false, $debugpath = false, $disableSSLCheck = false) {
 		$this->debugMode = $debug;
 		$this->useExceptions = $useExceptions;
 		$this->debugPath = (!$debugpath) ? self::__default_path_log : $debugpath;
+		$this->disableSSLCheck = $disableSSLCheck;
 		$this->shipment = new shipment($this->useExceptions);
 		$this->tracking = new tracking($this->useExceptions);
 		// $this->quickcost = new quickcost($this->useExceptions);
@@ -302,6 +311,9 @@ class chronopost {
 		$array = self::__soap_options;
 		$array['exceptions'] = $this->useExceptions;
 		$array['trace'] = !$this->useExceptions;
+		if($this->disableSSLCheck) {
+			$array['stream_context']=stream_context_create(self::__soap_sslcheck_disable);
+		}
 		return $array;
 	}
 	/*********
